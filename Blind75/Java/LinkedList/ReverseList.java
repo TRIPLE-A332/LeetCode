@@ -1,10 +1,11 @@
 package Blind75.LinkedList;
-
+import java.util.*;
 
 public class ReverseList {
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
+        LinkedList<Integer> ll = new LinkedList<>();
 
         while(curr!=null)
         {   
