@@ -1,0 +1,24 @@
+from collections import defaultdict
+
+from typing import List
+
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        hmap = {}
+        freq = [[] for i in range(len(nums)+1)]
+
+        for i in nums:
+            hmap[i] = 1+hmap.get(i,0)
+        for i,v in hmap.items():
+            freq[v].append(i)
+        res = []
+        for i in range(len(freq)-1,0,-1):
+            for n in freq[i]:
+                res.append(n)
+                if len(res)==k:
+                    return res
+
+
+solution = Solution()
+print(solution.topKFrequent([1,2],2))
